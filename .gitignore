@@ -1,0 +1,12 @@
+# ignore all .o files in the metis-5.1.0-p1-###/ directory
+metis-5.1.0-p1-dbg/**/*.o
+metis-5.1.0-p1-opt/**/*.o
+
+# no .o .a files
+*.[oa]
+
+# but do track io.o, even though you're ignoring .o files above  
+#!io.o  
+
+# no ~ files
+*~
