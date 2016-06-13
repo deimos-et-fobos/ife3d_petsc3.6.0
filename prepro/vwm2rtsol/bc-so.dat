@@ -1,0 +1,7 @@
+%Condiciones sobre caras del solido: 0=libre, 1=rigido, 2=fijo en X, 3=fijo en Y, 4=fijo en Z, 5=fijo en XY, 6=fijo en YZ, 7=fijo en XZ, <=10 = contacto con fluido
+1 1
+2 2
+3 3 
+4 5
+5 3 
+6 10

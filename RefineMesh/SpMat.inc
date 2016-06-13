@@ -1,0 +1,33 @@
+interface Print_SPM
+   procedure l_Print
+end interface 
+interface operator (.Transp.)
+   procedure l_Transp
+end interface 
+interface assignment(=)
+   procedure l_Copy
+end interface
+interface Constr_SPM
+   procedure l_constr
+end interface
+interface Destr_SPM
+   procedure l_destr
+end interface
+interface New_SPM
+   procedure l_new
+end interface
+interface Delete_SPM
+   procedure l_delete
+end interface
+interface RowSize
+   procedure l_rowsize
+end interface
+interface point_ja
+   procedure l_point_ja
+end interface
+interface DimRows
+   procedure l_dimrows
+end interface
+interface operator (+)
+   procedure l_add
+end interface

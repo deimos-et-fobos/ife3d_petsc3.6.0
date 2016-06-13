@@ -1,0 +1,37 @@
+FORMAT
+type:   ensight
+
+GEOMETRY
+model:     placa.geo
+
+VARIABLE
+
+vector per node:     Desplazamiento    desplazamiento-0000_****.vec
+
+TIME
+time set: 1
+number of steps:  21
+filename start number:  0
+filename increment:  1
+time values:
+   0.0
+   0.3
+   0.6
+   0.9
+   1.2
+   1.5
+   1.8
+   2.1
+   2.4
+   2.7
+   3.0
+   3.3
+   3.6
+   3.9
+   4.2
+   4.5
+   4.8
+   5.1
+   5.4
+   5.7
+   6.0

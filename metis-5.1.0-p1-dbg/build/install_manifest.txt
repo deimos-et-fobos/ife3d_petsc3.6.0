@@ -1,0 +1,5 @@
+/usr/local/petsc-201507dbg/include/metis.h
+/usr/local/petsc-201507dbg/include/gklib_tls.h
+/usr/local/petsc-201507dbg/lib/libmetis.so
+/usr/local/petsc-201507dbg/include/gklib_defs.h
+/usr/local/petsc-201507dbg/include/gklib_rename.h

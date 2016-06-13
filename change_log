@@ -1,0 +1,33 @@
+************************************************************************
+v20150205 - Cambios respecto a la versión 20150110
+************************************************************************
+-Se modifico el acoplamiento entre placas y solidos. Ahora se impone viendo los vértices del sólido en contacto con el borde de la placa. Se vinculan los desplazamientos del vértice en las 3 direcciones con los desplazamientos del borde de la placa.
+-Se creó la rutina ccoipmos.
+-Se cambió la rutina vibra, puntars, coipmos, coismos, getsol, coifmo y coipmo.
+-Se eliminó la rutina putitasp.
+
+************************************************************************
+v20150706 - Cambios respecto a la versión 20150205
+************************************************************************
+-Se agrego la subdivisión del dominio.
+-Se creó la rutina permutacion y vtkcolor.
+
+************************************************************************
+v20150826 - Cambios respecto a la versión 20150706
+************************************************************************
+-Se agregaron los desplazamientos in-plane en la placa.
+-Se modificaron las rutinas de las placas agregando 2 grados de libertad por nodo.
+
+************************************************************************
+v20150911 - Cambios respecto a la versión 20150826
+************************************************************************
+-Se agrega la presión del fluido como variable primaria ---> vibra_presion
+-Se observó la posibilidad de resolver problemas con métodos iterativos si no incluyen interacción placa-sólido.
+
+************************************************************************
+v20160531 - Cambios respecto a la versión 20150911
+************************************************************************
+-Implementación de METIS para la permutación de columnas.
+-Implementación de grafos para el alocamiento de memoria.
+-2 archivos: vibra.F y vibra_presion.F
+-2 ejecutables: vibra y vibra_presion

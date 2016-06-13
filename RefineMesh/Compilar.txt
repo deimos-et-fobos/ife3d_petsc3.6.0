@@ -1,0 +1,36 @@
+INSTRUCCIONES PARA COMPILACION CON GFORTRAN
+
+Compilacion:  
+
+a)	gfortran -c -fdollar-ok -w *.f90
+                       1^   2^  3^
+	1: Compilar 
+        2: Aceptar $ en nombres de variabla
+        3: Ignorar warnings
+
+b)	La primera vez aparecen varios errores por las dependencias no resueltas. Hacer otras pasadas hasta
+	que no haya errores.
+
+c)	gfortran -c -fdollar-ok -w *.for
+
+d)	gfortran -c -fdollar-ok -w *.FOR
+
+Linking: 
+
+	gfortran -o pFem *.o -lm
+                         
+Ojo: La compilacion debe realizarse en la maquina donde se va a realizar el link; si no da errores de arquitectura.
+
+
+COMPLILACION CON OPCIONES DE OPTIMIZACION.
+
+ gfortran -c -fdollar-ok -w -O3 -ffast-math *.f90 
+ gfortran -c -fdollar-ok -w -O3 -ffast-math *.for
+ gfortran -c -fdollar-ok -w -O3 -ffast-math *.FOR
+
+ gfortran -o HPARSEC *.o -O3 -ffast-math -lm
+
+
+COMPILACION CON FORTRAN 2003 Y LONGITUD MAXIMA DE LINEA ILIMITADA
+
+ gfortran -c -fdollar-ok -w -O3 -ffast-math -std=f2003 -ffree-line-length-none *.f90

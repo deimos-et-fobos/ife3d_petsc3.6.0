@@ -1,0 +1,65 @@
+C
+      program vtran
+C
+C     Condiciones de contorno
+C
+C     preprocesador entra los datos de las mallas de vwm
+C     y saca mallas para el prog de rt2d (Rodolfo Rodriguez)
+C
+C     By Ronia-14/3/97
+C
+      IMPLICIT double precision (a-h,o-z)
+      parameter (maxcoord=11000000)
+      parameter (maxgroups=100)
+      parameter (maxelem=10000000)
+      parameter (maxsur=10000000)
+      
+      dimension mm(4,maxelem),mmsur(3,maxelem),z(3,maxcoord)
+      integer  copy,ncopy
+      character*10 mat
+
+c     Número de dimensiones 
+ 111  WRITE (6,*) '¿placa o fluido?'
+      READ  (5,*) mat
+      if(mat(1:5).ne.'placa'.and.mat(1:6).ne.'fluido') goto 111
+
+c     ¿copia o translada?
+      WRITE (6,*) 'Mueve (0) - Copia (1)'
+      READ  (5,*) copy
+
+c     Numero de copias
+      if(copy.eq.1)then 
+        WRITE (6,*) 'Número de copias:'
+        READ  (5,*) ncopy
+      endif
+      
+      WRITE (6,*) 'Distancia x:'
+      READ  (5,*) dx
+      WRITE (6,*) 'Distancia y:'
+      READ  (5,*) dy
+      WRITE (6,*) 'Distancia z:'
+      READ  (5,*) dz
+      
+      if(mat(1:5).eq.'placa'.and.copy.eq.0) then
+        write(6,*) 'Warning: No se moverá la placa en dirección z'
+        call move_placa(mm,mmsur,z,dx,dy)
+      endif
+      if(mat(1:5).eq.'placa'.and.copy.eq.1) then
+        call copy_placa(mm,mmsur,z,ncopy,dx,dy,dz)
+      endif
+      if(mat(1:6).eq.'fluido'.and.copy.eq.0) then
+        call move_fluido(mm,mmsur,z,dx,dy,dz)
+      endif
+      if(mat(1:6).eq.'fluido'.and.copy.eq.1) then
+        call copy_fluido(mm,mmsur,z,ncopy,dx,dy,dz)
+      endif
+
+      return
+      end
+
+
+
+
+
+
+
