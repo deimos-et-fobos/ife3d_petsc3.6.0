@@ -16,7 +16,7 @@
         nrow = i 
         nrow = vec_iperm(nrow) + 1
         if(nrow.gt.r_min .and. nrow.le.r_max)then
-          alloc_d(nrow-r_min) = alloc_d(nrow-r_min) + 1   ! 1 + por si mismo 
+          alloc_d(nrow-r_min) = alloc_d(nrow-r_min) + 2   ! 1 + por si mismo 
           do 1100 j=iat_v(i)+1,iat_v(i+1)
             ncol = jat_v(j) + 1
             ncol = vec_iperm(ncol) + 1

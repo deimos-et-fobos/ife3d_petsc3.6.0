@@ -42,8 +42,8 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
         write(*,*)"Starting vwm2rtflu_mpi ..."
         write(*,*)" Valid BC:"
         write(*,*)"  0: Neumman"
-        write(*,*)"  1: U·n = 0 (Dirichlet con U como variable"
-        write(*,*)"  2: P = 0 (Dirichlet con P como variable"
+        write(*,*)"  1: U·n = 0 (Dirichlet con U como variable)"
+        write(*,*)"  2: P = 0 (Dirichlet con P como variable)"
         write(*,*)" >2: Robin o Contacto"
         write(*,*)
     

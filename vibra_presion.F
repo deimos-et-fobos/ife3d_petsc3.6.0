@@ -102,6 +102,7 @@ C
 !      dimension componentes_f(4,ndelf)
       dimension componentes_pz(3,ndelp),componentes_prot(2,3,ndelp)
       dimension ethaf_aux(ndverf)
+      dimension ndiv(3),cmin(3),cmax(3)
 
 !*    NEIGHBORS, GRAFO & METIS_PERM
       integer, dimension(:), allocatable :: ia,ja,iat,jat,iat_v,jat_v,
@@ -603,14 +604,10 @@ C
 !*       Permutacion con division del dominio
          if(div_perm.eq.1)then
            WRITE(*,*) "COLUMN PERMUTATION WITH DOMAIN DIVISION"
-           WRITE(*,*) "---> Number of divisions = ", ndiv_perm
-           WRITE(*,*) "---> Divisions in x-direction."
-           write(*,*) "---> Domain: x=[0;1.045]"
-           xmax=1.045
-           call domain_div(xmax,ndiv_perm,nglp,nelp,zp,mmp,nnp,cnump,
+           call domain_div(cmin,cmax,ndiv,nglp,nelp,zp,mmp,nnp,cnump,
      &          ngls,nvers,zs,mms,nglf,nelf,zf,mmf,nnf,ncacof,ncacofp,
      &          icaco,iverco,nvercos,ivercos,vec_perm,vec_iperm,nverf,
-     &          color_p,color_s,color_f)
+     &          color_p,color_s,color_f,dirp,smp)
 *           call vtkcolor(color_p,color_s,color_f,nverp,nvers,nverf)
 !           WRITE(*,*) "---> Filling Analysis:"
 !           call computefillin_f2c(n_iat,nedge_grafo,iat_v,jat_v,
@@ -668,6 +665,8 @@ C
              call write_grafo(n_iat,nedge_grafo,iat_v,jat_v,graph_name)
            endif
          endif
+         DEALLOCATE(ia,ja,iat,jat,STAT = DEALLOCATEStatus)
+         IF(DEALLOCATEStatus /= 0) STOP "ERROR in deallocation."
          TI=DTIME(TA)
          WRITE(*,*) "---> " ,TI, " SEC."
 !

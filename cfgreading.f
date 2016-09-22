@@ -61,6 +61,7 @@ C
 C
 C
 C
+      nrcop = 0
       IF (indpla.ne.0) then
       IF (IFINDKEY (1, 'PLATE_MESH') .NE. 0) THEN
          READ (1, '(A80)') mallap
@@ -135,6 +136,7 @@ C
 C
 C
 C
+      nrcos = 0
       IF (indsol.ne.0) then
       IF (IFINDKEY (1, 'SOLID_MESH') .NE. 0) THEN
          READ (1, '(A80)') mallas
@@ -210,6 +212,7 @@ C
 C
 C
 C
+      nrcof = 0
       IF (indflu.ne.0) then
 C
       IF (IFINDKEY (1, 'FLUID_MESH') .NE. 0) THEN
@@ -467,7 +470,7 @@ C
         READ (1, *) div_perm
       ELSE
         div_perm = 0
-        ndiv_perm = 1 
+        ndiv(1)=1; ndiv(2)=1; ndiv(3)=1 
       endif
       WRITE (16,'(/,A)') '*DOMAIN_DIVISION_PERMUTATION'
       WRITE (16,'(I1)') div_perm
@@ -475,12 +478,23 @@ C
       if(div_perm.eq.1)then
         metis = 0
         IF (IFINDKEY (1, 'NUMBER_OF_DIVISIONS') .NE. 0) THEN
-          READ (1, *) ndiv_perm
+          READ(1,*) (ndiv(j),j=1,3)
         ELSE
-          ndiv_perm = 1
+          ndiv(1)=1; ndiv(2)=1; ndiv(3)=1 
+        endif
+        IF (IFINDKEY (1, 'DOMAIN_COORDINATES') .NE. 0) THEN
+          READ(1,*) (cmin(j),j=1,3)
+          READ(1,*) (cmax(j),j=1,3)
+        else
+          ndiv(1)=1; ndiv(2)=1; ndiv(3)=1; 
+          cmin(1)=-1d10; cmin(2)=-1d10; cmin(3)=-1d10;
+          cmax(1)=+1d10; cmax(2)=+1d10; cmax(3)=+1d10;
         endif
         WRITE (16,'(A)') '*NUMBER_OF_DIVISIONS'
-        WRITE (16,'(I4)') ndiv_perm
+        WRITE (16,'(3(I4,1x))') (ndiv(j),j=1,3)
+        WRITE (16,'(A)') '*DOMAIN_COORDINATES'
+        WRITE (16,'(3(f9.3,1x))') (cmin(j),j=1,3)
+        WRITE (16,'(3(f9.3,1x))') (cmax(j),j=1,3)
       else
         metis = 1   !Default
       endif
@@ -499,7 +513,7 @@ C
           WRITE ( 6,'(A)') '---> WARNING: Using columns permutation'//
      &                     ' with METIS'
           div_perm = 0
-          ndiv_perm = 1
+          ndiv = 1
         endif
         WRITE (16,'(/,A)') '*PERM_METIS'
         WRITE (16,'(I1)') metis
