@@ -28,6 +28,7 @@
       do 1 k=1,nel
          do 2 j=1,3
             ! Nodo empotrado: No hay desplazamientos, ni rotaciones 
+            ! Ux, Uy, Uz, Rx, Ry = 0
             if(nrv(j,k).eq. 1) then
                do 3 i=1,5
                   igl=vec_perm(cnum(nn(j,k))+i)
@@ -40,6 +41,7 @@
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Nodo simplemente apoyado en x:  No hay desplazamiento transversal, ni rotación en x 
+            ! Uz, Rx = 0
             if(nrv(j,k).eq. 2) then
                igl=vec_perm(cnum(nn(j,k))+1)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
@@ -52,6 +54,7 @@
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Nodo simplemente apoyado en y:  No hay desplazamiento transversal, ni rotación en y 
+            ! Uz, Ry = 0
             if(nrv(j,k).eq. 3) then
                igl=vec_perm(cnum(nn(j,k))+1)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
@@ -64,6 +67,7 @@
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Simetria respecto al eje y: No hay desplazamiento ni rotacion en direccion x
+            ! Ux, Rx = 0
             if(nrv(j,k).eq. 4) then
                igl=vec_perm(cnum(nn(j,k))+2)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
@@ -72,9 +76,10 @@
             endif
             if(nra(j,k).eq. 4) then
                igl=vec_perm(cnum(nn(j+3,k))+1)
-               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+!               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Simetria respecto al eje x: No hay desplazamiento ni rotacion en direccion y
+            ! Uy, Ry = 0
             if(nrv(j,k).eq. 5) then
                igl=vec_perm(cnum(nn(j,k))+3)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
@@ -83,11 +88,100 @@
             endif
             if(nra(j,k).eq. 5) then
                igl=vec_perm(cnum(nn(j+3,k))+1)
+!               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Antisimetria respecto al eje y: No hay desplazamiento ni rotacion en direccion y
+            !                                 ni desplazamiento transversal
+            ! Uy, Uz, Ry = 0
+            if(nrv(j,k).eq. 6) then
+               igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+3)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+5)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 6) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Antisimetria respecto al eje x: No hay desplazamiento ni rotacion en direccion x
+            !                                 ni desplazamiento transversal
+            ! Ux, Uz, Rx = 0
+            if(nrv(j,k).eq. 7) then
+               igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+2)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+4)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 7) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Simplemente apoyado sin restringir rotaciones            
-            if(nrv(j,k).eq. 6) then
+            ! Uz = 0
+            if(nrv(j,k).eq. 8) then
                igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Uz, Rx, Ry = 0
+            if(nrv(j,k).eq. 9) then
+               igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+2)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+3)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 9) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Ux, Uz, Rx, Ry = 0
+            if(nrv(j,k).eq. 10) then
+               igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+2)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+3)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+4)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 10) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Uy, Uz, Rx, Ry = 0
+            if(nrv(j,k).eq. 11) then
+               igl=vec_perm(cnum(nn(j,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+2)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+3)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+5)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 11) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            ! Ux, Uy, Rx, Ry = 0
+            if(nrv(j,k).eq. 12) then
+               igl=vec_perm(cnum(nn(j,k))+2)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+3)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+4)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+               igl=vec_perm(cnum(nn(j,k))+5)
+               CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
+            endif
+            if(nra(j,k).eq. 12) then
+               igl=vec_perm(cnum(nn(j+3,k))+1)
                CALL MatSetValue(KR,IGL,IGL,V,INSERT_VALUES,IERR)
             endif
             ! Sin desplazamiento transversal

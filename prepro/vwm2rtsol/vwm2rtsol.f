@@ -20,6 +20,14 @@ C
       CHARACTER*80 FILESUR,FILEVWM,FILEBO,FILEOUT
       integer el_gr(maxgroups),sur_gr(maxgroups),el_ngrs,sur_ngrs,
      &        xx(8,8)
+      data xx/0,1,2,3,4,5,6,7,       1,1,1,1,1,1,1,1,
+     &        2,1,2,5,7,5,1,7,       3,1,5,3,6,5,6,1,
+     &        4,1,7,6,4,1,6,7,       5,1,5,5,1,5,1,1,
+     &        6,1,1,6,6,1,6,1,       7,1,7,1,7,1,1,7/
+
+      write(*,*)"Starting vwm2rtpla ..."
+      write(*,*)" Valid BC:"
+      write(*,*)"  0: Libre"
 
       write(*,*)"Starting vwm2rtsol ..."
       write(*,*)" Valid BC:"
@@ -154,23 +162,6 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
      
       call trasim(4,je,iet,jet,nvers,nels)
       CALL conel4(je,iet,jet,jee,nels)
- 
-      xx(1,1)=0;xx(1,2)=1;xx(1,3)=2;xx(1,4)=3;xx(1,5)=4;xx(1,6)=5
-      xx(1,7)=6;xx(1,8)=7
-      xx(2,1)=1;xx(2,2)=1;xx(2,3)=1;xx(2,4)=1;xx(2,5)=1;xx(2,6)=1
-      xx(2,7)=1;xx(2,8)=1
-      xx(3,1)=2;xx(3,2)=1;xx(3,3)=2;xx(3,4)=5;xx(3,5)=7;xx(3,6)=5
-      xx(3,7)=1;xx(3,8)=7
-      xx(4,1)=3;xx(4,2)=1;xx(4,3)=5;xx(4,4)=3;xx(4,5)=6;xx(4,6)=5
-      xx(4,7)=6;xx(4,8)=1
-      xx(5,1)=4;xx(5,2)=1;xx(5,3)=7;xx(5,4)=6;xx(5,5)=4;xx(5,6)=1
-      xx(5,7)=6;xx(5,8)=7
-      xx(6,1)=5;xx(6,2)=1;xx(6,3)=5;xx(6,4)=5;xx(6,5)=1;xx(6,6)=5
-      xx(6,7)=1;xx(6,8)=1
-      xx(7,1)=6;xx(7,2)=1;xx(7,3)=1;xx(7,4)=6;xx(7,5)=6;xx(7,6)=1
-      xx(7,7)=6;xx(7,8)=1
-      xx(8,1)=7;xx(8,2)=1;xx(8,3)=6;xx(8,4)=1;xx(8,5)=6;xx(8,6)=1
-      xx(8,7)=1;xx(8,8)=7
       
 c
 c	Calculo de la matriz  nrcs
@@ -228,31 +219,37 @@ c
       do 4000 i=1,nvers
          write(12,*) i,zs(1,i),zs(2,i),zs(3,i)
  4000 continue
+      write(12,*)
 
       write(12,'(a)') '*ELEMENT_GROUPS'
       write(12,*) el_ngrs
       do 4010 i=1,el_ngrs
             write(12,123) i,el_gr(i),'Tetra4'
  4010 continue
+      write(12,*)
  123  format(1x,i1,1x,i10,1x,a6)
       write(12,'(a)') '*INCIDENCE' ! Coordenadas
       write(12,'(a)') '<NONE>'
       do 4020 i=1,nels
          write(12,*) mms(1,i),mms(2,i),mms(3,i),mms(4,i)
  4020 continue
+      write(12,*)
 
       write(12,'(a)') '*NRV'    
       do 4030 i=1,nels
          write(12,*) nrvs(1,i),nrvs(2,i),nrvs(3,i),nrvs(4,i)
  4030 continue
+      write(12,*)
 
       write(12,'(a)') '*NRC'    
       do 4040 i=1,nels
          write(12,*) nrcs(1,i),nrcs(2,i),nrcs(3,i),nrcs(4,i)
  4040 continue
+      write(12,*)
          
       write(12,'(a)') '*NSD'   !Numero de Subdominios
       write(12,*)  (' 1 ',i=1,nels)
+      write(12,*)
 
       write(12,'(a)') '*END' ! Final
       close(12)

@@ -272,34 +272,41 @@ c
       do 4000 i=1,nverf
          write(12,*) i,(zf(j,i),j=1,3)
  4000 continue
+      write(12,*)
 
       write(12,'(/,a)') '*ELEMENT_GROUPS'
       write(12,*) el_ngrs
       do 4010 i=1,el_ngrs      
          write(12,123) i,el_gr(i),'Tetra4'
  4010 continue
+      write(12,*)
  123  format(1x,i3,1x,i9,1x, a6)
       write(12,'(/,a)') '*INCIDENCE' ! Coordenadas
       write(12,'(a)') '<NONE>'
       do 4020 i=1,nelf
          write(12,*) (mmf(j,i),j=1,4)
  4020 continue
+      write(12,*)
 
       write(12,'(/,a)') '*NFACES'
       write(12,*) nnodf
+      write(12,*)
 
       write(12,'(/,a)') '*FACE_INCIDENCE' ! Incidencias de lados
       do 4030 i=1,nelf
          write(12,*) (nnf(j,i),j=1,4)
  4030 continue
+      write(12,*)
 
       write(12,'(/,a)') '*NRC'    
       do 4040 i=1,nelf
          write(12,*) (nrcf(j,i),j=1,4)
  4040 continue
+      write(12,*)
          
       write(12,'(/,a)') '*NSD'   !Numero de Subdominios
       write(12,*)  (' 1 ',i=1,nelf)
+      write(12,*)
 
 
       write(12,'(/,a)') '*END' ! Final

@@ -56,7 +56,7 @@
       nvercos=0
       do 20 k=1,nelp
         do 21 l=1,3
-          if(nrap(l,k).ge.7)then
+          if(nrap(l,k).ge.12)then
             do 22 irp=1,nrcop
               if(iflag_pla(irp).ne.0)then
                 if(nrap(l,k).eq.irefcp(irp))then
