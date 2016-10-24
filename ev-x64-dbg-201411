@@ -22,5 +22,5 @@ export SLEPC_DIR=/usr/local/slepc-${VERSION}d
 #
 export PAR_IFE_DIR=${HOME}/ife3d/par_ife3D
 #
-export FUENTES=f_20160531
+export FUENTES=src
 export METISDIR=${PAR_IFE_DIR}/${FUENTES}/metis-5.1.0-p1-dbg
