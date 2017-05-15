@@ -1,0 +1,16 @@
+. /usr/local/slepc-201702O/slepcvars.sh
+#
+MPILDPATH=${MPIINSTDIR}/lib
+if [ -z $LD_LIBRARY_PATH ]
+then
+  export LD_LIBRARY_PATH=$MPILDPATH
+else
+  echo $LD_LIBRARY_PATH | grep -qv $MPILDPATH && export LD_LIBRARY_PATH=$MPILDPATH:$LD_LIBRARY_PATH
+fi
+#
+export SLEPC_COMMON=${SLEPC_DIR}/lib/slepc/conf/slepc_common
+#
+export PAR_IFE_DIR=${HOME}/ife3d/par_ife3D
+#
+export FUENTES=src
+export METISDIR=${PAR_IFE_DIR}/${FUENTES}/metis-5.1.0-p1-opt

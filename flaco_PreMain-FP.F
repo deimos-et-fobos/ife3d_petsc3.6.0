@@ -10,12 +10,12 @@
 !
       IMPLICIT REAL*8 (A-H, O-Z)
 !
-#include "finclude/petscsys.h"
-#include "finclude/petscis.h"
-#include "finclude/petscis.h90"
-#include "finclude/petscmat.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscvec.h90"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscis.h"
+#include "petsc/finclude/petscis.h90"
+#include "petsc/finclude/petscmat.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscvec.h90"
 !
 !
 !     subroutine BuildlIEJEpre allocates memory for some arrays

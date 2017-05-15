@@ -33,9 +33,9 @@ c	ndcacos     -->	memoria reservada para la matriz cois
 c	
 c
       implicit double precision (a-h,o-z) 
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension mms(4,*),z(3,*),nels(*),inodf(*),iels(*),
      &          ilcif(*),x1(*),y1(*),z1(*),x2(*),y2(*),z2(*),

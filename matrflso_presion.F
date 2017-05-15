@@ -3,9 +3,9 @@
      &                x2,y2,z2,x3,y3,z3,nglp,ngls,KR,M,vec_perm)
 
       implicit double precision (a-h,o-z) 
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension mms(4,*),zs(3,*),zf(3,*),
      &          iels(*),ilcif(*),iverco(3,*),inodf(*),

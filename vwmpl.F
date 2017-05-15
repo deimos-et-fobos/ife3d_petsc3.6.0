@@ -8,9 +8,9 @@
      &               zp,up,upv,beta_l,rot,smp,thin,nev)
 
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension mmp(3,*),nnp(6,*),zp(2,*),up(*),upv(*),beta_l(2,*),
      &      tau(2),coord(2),ngp(3,*),rot(2,*),ver(2,3),smp(*),thin(*)

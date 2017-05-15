@@ -4,9 +4,9 @@
 
       subroutine ensp(A,Ae,cnum,nn,ng,thin,vec_perm,k)
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       common/p_fluido/varf
 
       dimension nn(*),ng(3)

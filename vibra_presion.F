@@ -3,20 +3,20 @@
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
      
 C PETSC include
-!#include "finclude/petsc.h"
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
-#include "finclude/petscksp.h"
-#include "finclude/petscpc.h"
-#include "finclude/petscis.h"
-#include "finclude/petscdraw.h" 
-#include "finclude/petscviewer.h"
+!#include "petsc/finclude/petsc.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
+#include "petsc/finclude/petscksp.h"
+#include "petsc/finclude/petscpc.h"
+#include "petsc/finclude/petscis.h"
+#include "petsc/finclude/petscdraw.h" 
+#include "petsc/finclude/petscviewer.h"
 C SLEPC includes
-!#include "finclude/slepc.h"
-#include "finclude/slepcsys.h"
-#include "finclude/slepceps.h"
-#include "finclude/slepcst.h"
+!#include "petsc/finclude/slepc.h"
+#include "slepc/finclude/slepcsys.h"
+#include "slepc/finclude/slepceps.h"
+#include "slepc/finclude/slepcst.h"
 C
 
       PARAMETER(NDELP=120000,NDVERP=100000,NDARP=200000,NDGLP=
@@ -1127,7 +1127,7 @@ C
       CALL PetscPrintf(PETSC_COMM_WORLD, ERRMSG//CHAR(10), IERR)
       DO ICONT = 0, NCONV - 1
          CALL EPSGetEigenvalue(eps,ICONT,EIG_R,EIG_I,IERR)
-       CALL EPSComputeRelativeError(eps,ICONT,EIG_ERROR,IERR)
+       CALL EPSComputeError(eps,ICONT,EPS_ERROR_RELATIVE,EIG_ERROR,IERR)
          WRITE (EMSG12,*) ICONT,dsqrt(EIG_R),EIG_R,
      &                    '+',EIG_I,'i',EIG_ERROR
          CALL PetscPrintf(PETSC_COMM_WORLD, EMSG12//CHAR(10), IERR)
@@ -1140,7 +1140,7 @@ C
 !!!
       DO ICONT = 0, NCONV - 1
          CALL EPSGetEigenpair(eps, ICONT, EIG_R, EIG_I, X, B, IERR)
-         CALL EPSComputeRelativeError(eps, ICONT, EIG_ERROR, IERR)
+       CALL EPSComputeError(eps,ICONT,EPS_ERROR_RELATIVE,EIG_ERROR,IERR)
          WRITE (EMSG12,*)  'EIGENVALUE, ERROR:',
      &          EIG_R, '+', EIG_I, 'I, ', EIG_ERROR
          CALL PetscPrintf(PETSC_COMM_WORLD, EMSG12//CHAR(10), IERR)

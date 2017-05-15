@@ -2,9 +2,9 @@
      &                   dirp,smp,DOF,KR,ncacof,vec_perm)
 
       implicit double precision (a-h,o-z) 
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       common/p_fluido/varf
 
       dimension   mmp(3,*),nnp(6,*),zp(2,*),zs(3,*),smp(*),

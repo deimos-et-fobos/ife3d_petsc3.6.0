@@ -19,9 +19,9 @@
      &     iRank, nProcs, iFirstNode, locNodes)
 !     ------------------------------------------------------------------
 !
-#include "finclude/petscsys.h"
-!     #include "finclude/petscis.h"
-!     #include "finclude/petscis.h90"
+#include "petsc/finclude/petscsys.h"
+!     #include "petsc/finclude/petscis.h"
+!     #include "petsc/finclude/petscis.h90"
 !
       INTEGER gIE(*), gJE(*)    ! Global conectivity (only master)
       Dimension iFirstNode(nProcs) ! First node in each process (only master)
@@ -175,9 +175,9 @@
 !
 !      Use MemAndTimes
 !
-#include "finclude/petscsys.h"
-#include "finclude/petscis.h"
-#include "finclude/petscis.h90"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscis.h"
+#include "petsc/finclude/petscis.h90"
 !
       INTEGER gIE(*), gJE(*) ! Global conectivity (only master)
       Dimension iFirstNode(nProcs) ! First node in each process (only master)

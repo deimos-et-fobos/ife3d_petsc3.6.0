@@ -20,9 +20,9 @@ c	area		--> 	area de la carita de interseccion solido-liquido
 c	dirp		-->	dirección de la normal de la placa
 c
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension zmc(3),psi(3) 
       double precision nu(*),normal

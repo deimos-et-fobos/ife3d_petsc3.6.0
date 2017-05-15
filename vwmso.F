@@ -6,9 +6,9 @@
       subroutine vwmso(nvers,us,usv,nev)
 
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension us(*),usv(3,*)
       character*80 WorkDir,filename

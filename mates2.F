@@ -1,9 +1,9 @@
       subroutine mates2(Me,dens,det)
       
       implicit double precision(a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       
       double precision N(4,4)
       integer aux(4)    

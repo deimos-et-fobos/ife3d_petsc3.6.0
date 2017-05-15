@@ -3,9 +3,9 @@
 
 
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       
       dimension mmf(4,*),zf(3,*),nnf(4,*),uf(*),ngf(4,*),
      &          componentes(4,*),div(*)

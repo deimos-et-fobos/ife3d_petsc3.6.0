@@ -19,9 +19,9 @@
 
       subroutine getsol_presion(IOvecScan,i_x,up,us,pf,pressp,
      &                  nglp,ngls,nglf,nvercos,vec_perm)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       double precision up(*),us(*),pf(*),pressp(*)
       integer nglp,ngls,nglf,nvercos

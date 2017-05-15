@@ -4,9 +4,9 @@
      &           nvercof,ivercof,ielpf,indlpf,ngls)
 
       implicit double precision (a-h,o-z) 
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension   mmp(3,*),nnp(6,*),zp(2,*),zf(3,*),
      &            ielp(*),indcp(*),ilcif(*),iverco(3,*),inodf(*),

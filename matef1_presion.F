@@ -1,9 +1,9 @@
       subroutine matef1_presion(KRe,InvDk,det,dens,vels)
       
       implicit double precision(a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       double precision InvDk(3,3),Grad(4,3),det,coef,dens,vels 
       

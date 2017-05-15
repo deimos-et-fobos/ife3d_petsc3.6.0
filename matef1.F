@@ -1,9 +1,9 @@
       subroutine matef1(Me,auxM,p,vol,dens,area,sigm)
       
       implicit double precision(a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension area(4),p(3,4)
       integer sigm(4),fact

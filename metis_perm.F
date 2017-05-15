@@ -5,7 +5,7 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
+#include "petsc/finclude/petscsys.h"
       parameter (max_vec=1000)
       dimension iat_v(*),jat_v(*),ia_perm(*),ia_iperm(*)
       integer cnump(*),perm(*),iperm(*),vec_perm(*),vec_iperm(*)
@@ -89,7 +89,7 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
+#include "petsc/finclude/petscsys.h"
       parameter (max_vec=1000)
       dimension iat_v(*),jat_v(*),ia_perm(*),ia_iperm(*)
       integer cnump(*),perm(*),iperm(*),vec_perm(*),vec_iperm(*)
@@ -162,7 +162,7 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
+#include "petsc/finclude/petscsys.h"
       dimension iat_v(*),jat_v(*)
       integer vec_perm(*),vec_iperm(*)
 !

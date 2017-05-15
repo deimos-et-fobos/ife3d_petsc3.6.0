@@ -10,9 +10,9 @@
      &                  velso,nrc,nrrf,irefrf,rk,rm,M,KR,vec_perm)
 
       implicit double precision(a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       
       dimension z(3,*),nsd(*),mm(4,*),bar(3),vol(*),nrc(4,*),
      &          irefrf(*),rk(*),rm(*),Dk(3,3),adj(3,3)

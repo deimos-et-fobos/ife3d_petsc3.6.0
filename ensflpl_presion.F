@@ -4,9 +4,9 @@
       implicit double precision (a-h,o-z)
       common/coeffl/densf,velsq,ndsd,isd
       dimension isd(30),densf(30),velsq(30)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       double precision nu(*),normal,csi_p(3),eta_p(3),csi_f(3),eta_f(3),
      &                 aux_p(3),aux_f(3),thin

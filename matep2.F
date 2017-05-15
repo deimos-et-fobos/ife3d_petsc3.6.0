@@ -5,9 +5,9 @@
 
       subroutine matep2(det,Me,tauk,dens,thin)
       implicit double precision (a-h,m,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension  tauk(2,3),aux(3,3),Mp1(3,3),Mpb(3,3),
      &           Mp(3,3),Mp1b(3,3,2)

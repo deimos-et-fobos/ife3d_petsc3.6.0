@@ -20,9 +20,9 @@
 
       subroutine writeree(nev,eigen,IOvec,IOvecScan,
      &                        nglp,ngls,nglf,ncaco,pslc)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       double precision eigen
       character*3  StNev, Str3

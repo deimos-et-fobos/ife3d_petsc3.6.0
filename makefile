@@ -2,8 +2,8 @@ IFE3DMAIN_DIR = .
 BIN_DIR = $(IFE3DMAIN_DIR)
 
 #.SUFFIXES= .f .c .o
-PROG_VIBRA = ../bin/vibra
-PROG_VIBRA_P = ../bin/vibra_presion
+PROG_VIBRA = ../bin/vibra_mecphi
+PROG_VIBRA_P = ../bin/vibra_presion_mecphi
 
 OBJECTS = lecmalla.o signop.o signof.o\
 write_interfaz_fs.o write_interfaz_fp.o write_interfaz_sp.o\
@@ -98,4 +98,4 @@ clean_:
 wipe: clean
 		rm -f $(PROGRAM) *% *~
 
-include $(SLEPC_DIR)/conf/slepc_common
+include $(SLEPC_COMMON)

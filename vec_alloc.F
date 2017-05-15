@@ -4,9 +4,9 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       dimension iat_v(*),jat_v(*)
       integer vec_iperm(*),dof
       PetscInt  alloc_d(1),alloc_o(1)
@@ -40,9 +40,9 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       dimension iat_v(*),jat_v(*)
       integer vec_iperm(*),dof
       PetscInt  alloc_d(1),alloc_o(1)
@@ -96,9 +96,9 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       dimension iat_v(*),jat_v(*)
       integer vec_iperm(*),dof
       PetscInt  alloc_d(1),alloc_o(1)
@@ -130,9 +130,9 @@
 !     ------------------------------------------------------------------
 !
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       dimension iat_v(*),jat_v(*)
       integer vec_iperm(*),dof
       PetscInt  alloc_d(1),alloc_o(1)

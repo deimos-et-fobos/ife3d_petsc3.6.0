@@ -1,9 +1,9 @@
       subroutine mates1(KRe,C,InvDk,vol)
       
       implicit double precision(a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       double precision InvDk(3,3),C(6,6),Grad(4,3),R(6,12)     
       integer aux(9)

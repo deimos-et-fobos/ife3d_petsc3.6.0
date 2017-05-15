@@ -9,9 +9,9 @@
 
 
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       DIMENSION NNP(6,*),MMS(4,*),NNF(4,*),ICACO(*),ILCIFS(*),IELS(*),
      &            DIRS(*),ILCIFP(*),IELP(*)

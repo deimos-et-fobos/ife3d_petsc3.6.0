@@ -7,9 +7,9 @@
      &                              ver,thin,DN,DQ,pgauss,DkInv)
      
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
 
       dimension CA(4,4),DN(2,3),DQ(2,3,3),pgauss(3,2),xg(2),
      &      A1(2,2,3),A2(2,2,3),A3(2,2,3),tauk(2,3),GB(4,9,3),GDk(4,4),

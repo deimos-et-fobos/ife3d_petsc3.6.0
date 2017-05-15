@@ -23,9 +23,9 @@ c	eta,csi     -->	coordenadas de referencia en los vertices de la carita
 c	area		--> 	area de la carita de interseccion solido-liquido
 c
       implicit double precision (a-h,o-z)
-#include "finclude/petscsys.h"
-#include "finclude/petscvec.h"
-#include "finclude/petscmat.h"
+#include "petsc/finclude/petscsys.h"
+#include "petsc/finclude/petscvec.h"
+#include "petsc/finclude/petscmat.h"
       
       double precision nu(*)
 
